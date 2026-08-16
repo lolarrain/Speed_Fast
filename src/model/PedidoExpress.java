@@ -1,7 +1,9 @@
+package model;
+
 public class PedidoExpress extends Pedido {
 
     /**
-     * Constructor para un pedido de compra express.
+     * Constructor de un pedido express.
      *
      * @param idPedido identificador del pedido
      * @param direccionEntrega dirección de entrega
@@ -16,7 +18,9 @@ public class PedidoExpress extends Pedido {
     @Override
     public void asignarRepartidor() {
         System.out.println("Pedido #" + getIdPedido() + " - Compra Express");
-        System.out.println("Buscando al repartidor más cercano con disponibilidad inmediata...");
+        System.out.println(
+                "Buscando al repartidor más cercano con disponibilidad inmediata..."
+        );
     }
 
     /**
@@ -27,6 +31,8 @@ public class PedidoExpress extends Pedido {
     @Override
     public void asignarRepartidor(String nombreRepartidor) {
         System.out.println("Repartidor asignado: " + nombreRepartidor);
-        System.out.println("Validación: debe estar cercano y disponible inmediatamente.");
+        System.out.println(
+                "Validación: debe estar cercano y disponible inmediatamente."
+        );
     }
 }

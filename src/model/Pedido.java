@@ -1,3 +1,5 @@
+package model;
+
 public class Pedido {
 
     private int idPedido;
@@ -8,7 +10,7 @@ public class Pedido {
      * Constructor de la clase Pedido.
      *
      * @param idPedido identificador del pedido
-     * @param direccionEntrega dirección donde debe entregarse
+     * @param direccionEntrega dirección donde debe realizarse la entrega
      * @param tipoPedido tipo de pedido
      */
     public Pedido(int idPedido, String direccionEntrega, String tipoPedido) {
@@ -21,12 +23,11 @@ public class Pedido {
      * Realiza una asignación genérica de repartidor.
      */
     public void asignarRepartidor() {
-        System.out.println("Buscando un repartidor disponible para el pedido...");
+        System.out.println("Buscando un repartidor disponible...");
     }
 
     /**
-     * Asigna un repartidor específico al pedido.
-     * Este método corresponde a una sobrecarga de asignarRepartidor().
+     * Asigna un repartidor específico.
      *
      * @param nombreRepartidor nombre del repartidor
      */

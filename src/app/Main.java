@@ -1,3 +1,10 @@
+package app;
+
+import model.Pedido;
+import model.PedidoComida;
+import model.PedidoEncomienda;
+import model.PedidoExpress;
+
 public class Main {
 
     /**

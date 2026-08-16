@@ -1,7 +1,9 @@
+package model;
+
 public class PedidoComida extends Pedido {
 
     /**
-     * Constructor para un pedido de comida.
+     * Constructor de un pedido de comida.
      *
      * @param idPedido identificador del pedido
      * @param direccionEntrega dirección de entrega
@@ -11,7 +13,7 @@ public class PedidoComida extends Pedido {
     }
 
     /**
-     * Busca un repartidor que disponga de mochila térmica.
+     * Busca un repartidor con mochila térmica.
      */
     @Override
     public void asignarRepartidor() {
