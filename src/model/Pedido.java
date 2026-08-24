@@ -1,39 +1,44 @@
 package model;
 
-public class Pedido {
+/**
+ * Clase abstracta que representa un pedido genérico de SpeedFast.
+ * Contiene los atributos y comportamientos comunes a todos los tipos de pedido.
+ */
+public abstract class Pedido {
 
     private int idPedido;
     private String direccionEntrega;
-    private String tipoPedido;
+    private double distanciaKm;
 
     /**
      * Constructor de la clase Pedido.
      *
-     * @param idPedido identificador del pedido
-     * @param direccionEntrega dirección donde debe realizarse la entrega
-     * @param tipoPedido tipo de pedido
+     * @param idPedido identificador único del pedido
+     * @param direccionEntrega dirección donde se realizará la entrega
+     * @param distanciaKm distancia de la entrega en kilómetros
      */
-    public Pedido(int idPedido, String direccionEntrega, String tipoPedido) {
+    public Pedido(int idPedido, String direccionEntrega, double distanciaKm) {
         this.idPedido = idPedido;
         this.direccionEntrega = direccionEntrega;
-        this.tipoPedido = tipoPedido;
+        this.distanciaKm = distanciaKm;
     }
 
     /**
-     * Realiza una asignación genérica de repartidor.
+     * Muestra los datos básicos del pedido.
      */
-    public void asignarRepartidor() {
-        System.out.println("Buscando un repartidor disponible...");
+    public void mostrarResumen() {
+        System.out.println("ID Pedido: " + idPedido);
+        System.out.println("Dirección de entrega: " + direccionEntrega);
+        System.out.println("Distancia: " + distanciaKm + " km");
     }
 
     /**
-     * Asigna un repartidor específico.
+     * Calcula el tiempo estimado de entrega.
+     * Cada tipo de pedido debe implementar su propia lógica.
      *
-     * @param nombreRepartidor nombre del repartidor
+     * @return tiempo estimado de entrega en minutos
      */
-    public void asignarRepartidor(String nombreRepartidor) {
-        System.out.println("Repartidor asignado: " + nombreRepartidor);
-    }
+    public abstract int calcularTiempoEntrega();
 
     public int getIdPedido() {
         return idPedido;
@@ -43,7 +48,7 @@ public class Pedido {
         return direccionEntrega;
     }
 
-    public String getTipoPedido() {
-        return tipoPedido;
+    public double getDistanciaKm() {
+        return distanciaKm;
     }
 }

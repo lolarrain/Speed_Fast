@@ -5,42 +5,58 @@ import model.PedidoComida;
 import model.PedidoEncomienda;
 import model.PedidoExpress;
 
+import java.util.List;
+
+/**
+ * Clase principal del sistema SpeedFast.
+ */
 public class Main {
 
     /**
-     * Método principal para probar el sistema SpeedFast.
+     * Método principal para probar los distintos tipos de pedidos
+     * utilizando una colección polimórfica.
      *
      * @param args argumentos de línea de comandos
      */
     public static void main(String[] args) {
 
-        Pedido pedido1 = new PedidoComida(
+        Pedido pedidoComida = new PedidoComida(
                 101,
-                "Av. Argentina 1234"
+                "Av. Argentina 1234",
+                4.0
         );
 
-        Pedido pedido2 = new PedidoEncomienda(
+        Pedido pedidoEncomienda = new PedidoEncomienda(
                 102,
-                "Prat 850"
+                "Prat 850",
+                5.0
         );
 
-        Pedido pedido3 = new PedidoExpress(
+        Pedido pedidoExpress = new PedidoExpress(
                 103,
-                "Av. Brasil 450"
+                "Av. Brasil 450",
+                7.0
+        );
+
+        List<Pedido> pedidos = List.of(
+                pedidoComida,
+                pedidoEncomienda,
+                pedidoExpress
         );
 
         System.out.println("===== SPEEDFAST =====");
 
-        System.out.println("\n--- PEDIDO DE COMIDA ---");
-        pedido1.asignarRepartidor();
-        pedido1.asignarRepartidor("Carlos");
+        for (Pedido pedido : pedidos) {
 
-        System.out.println("\n--- PEDIDO DE ENCOMIENDA ---");
-        pedido2.asignarRepartidor();
-        pedido2.asignarRepartidor("María");
+            System.out.println("\n----------------------------");
 
-        System.out.println("\n--- PEDIDO EXPRESS ---");
-        pedido3.asignarRepartidor();
-        pedido3.asignarRepartidor("Pedro");
+            pedido.mostrarResumen();
+
+            System.out.println(
+                    "Tiempo estimado de entrega: "
+                            + pedido.calcularTiempoEntrega()
+                            + " minutos"
+            );
+        }
     }
 }
